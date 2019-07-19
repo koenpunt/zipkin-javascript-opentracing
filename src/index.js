@@ -225,13 +225,13 @@ class Tracing {
 
     this._zipkinTracer = new Tracer({
       ctxImpl: new ExplicitContext(),
-      recorder: options.recorder
+      recorder: options.recorder,
+      sampler: options.sampler
     });
     this._Span = SpanCreator({
       tracer: this._zipkinTracer,
       serviceName: this._serviceName,
-      kind: options.kind,
-      sampler: options.sampler
+      kind: options.kind
     });
   }
 
